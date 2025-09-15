@@ -550,15 +550,16 @@
             opacity: 1;
         }
 
-        /* Footer Styles - MODIFIED */
+        /* Footer Styles - UPDATED */
         .footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px 20px;
             margin: 20px auto 10px auto;
             max-width: 1000px;
             color: white;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             transition: color 0.3s ease;
+            line-height: 1.4;
         }
 
         body.dark-mode .footer {
@@ -567,7 +568,8 @@
 
         .footer p {
             margin: 0;
-            opacity: 0.9;
+            opacity: 0.8;
+            font-weight: 400;
         }
 
         /* Responsiveness */
@@ -644,8 +646,8 @@
             }
             
             .footer {
-                padding: 15px;
-                font-size: 0.85rem;
+                padding: 12px 15px;
+                font-size: 0.7rem;
                 margin-top: 15px;
             }
         }
@@ -674,15 +676,14 @@
             }
             
             .footer {
-                padding: 12px;
-                font-size: 0.8rem;
+                padding: 10px 12px;
+                font-size: 0.65rem;
                 margin-top: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Konten HTML tetap sama persis seperti sebelumnya -->
     <div class="container">
         <div class="header">
             <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
@@ -835,7 +836,6 @@
     </div>
 
     <script>
-        // JavaScript tetap sama persis seperti sebelumnya
         // Pilih ukuran dengan hide previous results
         document.querySelectorAll('.granite-option').forEach(option => {
             option.addEventListener('click', function() {
@@ -1287,7 +1287,7 @@ _Dihitung via Kalkulator Sekawan Jaya_`;
             e.target.value = value;
         });
 
-        document.getElementById('phoneNumber').addermostListener('keypress', function(e) {
+        document.getElementById('phoneNumber').addEventListener('keypress', function(e) {
             // Only allow numbers
             if (!/[0-9]/.test(e.key) && !['Backspace', 'Delete', 'Tab', 'Enter'].includes(e.key)) {
                 e.preventDefault();
@@ -1306,7 +1306,7 @@ _Dihitung via Kalkulator Sekawan Jaya_`;
 
         // Handle offline/online status
         window.addEventListener('online', () => {
-            console.log('🌐 Kembali online');
+            console.log('🌍 Kembali online');
         });
 
         window.addEventListener('offline', () => {
