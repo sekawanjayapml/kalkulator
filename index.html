@@ -10,7 +10,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Open Sans', sans-serif; /* Mengubah font utama */
+            font-family: 'Open Sans', sans-serif;
             background: linear-gradient(135deg, #0a1931 0%, #185adb 50%, #3b82f6 100%);
             min-height: 100vh; 
             padding: 10px;
@@ -50,9 +50,9 @@
         }
         
         .header h1 { 
-            font-family: 'Poppins', sans-serif; /* Font untuk judul */
+            font-family: 'Poppins', sans-serif;
             font-size: 1.8rem; 
-            font-weight: 700; /* Dibuat tebal */
+            font-weight: 700;
             margin-bottom: 8px; 
         }
         .header p { 
@@ -80,6 +80,7 @@
             min-width: 200px;
         }
         
+        /* IMPROVED LABEL STYLES */
         label {
             display: block; 
             font-weight: 600; 
@@ -92,38 +93,52 @@
             color: #6ab0ff;
         }
         
+        /* IMPROVED INPUT STYLES - FOCUS ON INPUT FIELD ONLY */
         input, select {
             width: 100%; 
-            padding: 12px; 
-            border: 2px solid #e1e8ed;
-            border-radius: 10px; 
-            font-size: 1rem; 
-            background: white;
-            color: #333;
-            transition: all 0.3s ease;
+            padding: 14px 16px;
+            border: 2px solid #D1D5DB; /* Changed from #e1e8ed to neutral gray */
+            border-radius: 8px; /* Changed from 10px to 8px for modern look */
+            font-size: 16px; /* Increased from 1rem for better mobile experience */
+            background: #ffffff;
+            color: #111827;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+            font-family: inherit;
         }
 
+        /* Improved placeholder styling */
+        input::placeholder {
+            color: #9CA3AF; /* Changed from default to lighter gray */
+            opacity: 1;
+        }
+
+        /* FOCUS STATE - Blue brand color with subtle glow */
         input:focus, select:focus {
             outline: none; 
-            border-color: #185adb;
-            box-shadow: 0 0 0 3px rgba(24, 90, 219, 0.15);
-            transform: translateY(-2px);
+            border-color: #3B82F6; /* Changed to brand blue */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 
+                        0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Added subtle glow */
+            background: #ffffff;
         }
 
+        /* Dark mode input styles */
         body.dark-mode input, 
         body.dark-mode select {
             background: #2a3b52;
             border-color: #3a506b;
             color: #e1e8ed;
         }
-        
-        /* Input validation styles */
-        input:invalid {
-            border-color: #dc3545;
+
+        body.dark-mode input::placeholder {
+            color: #6B7280;
         }
-        
-        input:valid {
-            border-color: #28a745;
+
+        body.dark-mode input:focus,
+        body.dark-mode select:focus {
+            border-color: #60A5FA;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1),
+                        0 1px 3px 0 rgba(0, 0, 0, 0.3);
+            background: #2a3b52;
         }
         
         /* Grid untuk opsi keramik */
@@ -174,7 +189,7 @@
         .granite-option input[type="radio"] { display: none; }
         
         .granite-size { 
-            font-family: 'Poppins', sans-serif; /* Font untuk ukuran */
+            font-family: 'Poppins', sans-serif;
             font-weight: 600; 
             font-size: 1rem; 
             margin-bottom: 4px; 
@@ -308,10 +323,10 @@
         }
         
         .result h3 { 
-            font-family: 'Poppins', sans-serif; /* Font untuk sub-judul */
+            font-family: 'Poppins', sans-serif;
             color: #0a1931; 
             font-size: 1.5rem; 
-            font-weight: 700; /* Dibuat tebal */
+            font-weight: 700;
             margin-bottom: 20px; 
         }
 
@@ -356,7 +371,7 @@
         }
         
         .result-item .value { 
-            font-family: 'Poppins', sans-serif; /* Font untuk nilai */
+            font-family: 'Poppins', sans-serif;
             font-size: 1.4rem; 
             font-weight: 700; 
             color: #0a1931;
@@ -383,7 +398,7 @@
             gap: 12px;
             transition: all 0.3s ease;
             margin: 10px 5px;
-			box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
         .whatsapp-btn:hover { 
@@ -559,7 +574,7 @@
             opacity: 1;
         }
 
-        /* Footer Styles - MODIFIED */
+        /* Footer Styles */
         .footer {
             text-align: center;
             padding: 20px;
@@ -594,6 +609,10 @@
             .form-row {
                 flex-direction: column;
                 gap: 15px;
+            }
+            
+            input, select {
+                font-size: 16px; /* Prevent zoom on iOS */
             }
             
             .result {
@@ -1294,7 +1313,7 @@ _Dihitung via Kalkulator Sekawan Jaya_`;
             e.target.value = value;
         });
 
-        document.getElementById('phoneNumber').addermostListener('keypress', function(e) {
+        document.getElementById('phoneNumber').addEventListener('keypress', function(e) {
             // Only allow numbers
             if (!/[0-9]/.test(e.key) && !['Backspace', 'Delete', 'Tab', 'Enter'].includes(e.key)) {
                 e.preventDefault();
@@ -1323,5 +1342,4 @@ _Dihitung via Kalkulator Sekawan Jaya_`;
         });
     </script>
 </body>
-
 </html>
