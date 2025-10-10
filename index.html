@@ -14,13 +14,8 @@
             background: linear-gradient(135deg, #0a1931 0%, #185adb 50%, #3b82f6 100%);
             min-height: 100vh; 
             padding: 10px;
-            transition: background 0.3s ease;
             font-size: 15px;
             line-height: 1.5;
-        }
-
-        body.dark-mode {
-            background: linear-gradient(135deg, #0a1929 0%, #1a3658 100%);
         }
         
         .container {
@@ -30,12 +25,6 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(10, 25, 49, 0.2);
             overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode .container {
-            background: rgba(26, 35, 51, 0.98);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
         
         .header {
@@ -44,11 +33,6 @@
             padding: 30px 20px; 
             text-align: center;
             position: relative;
-            transition: all 0.3s ease;
-        }
-
-        body.dark-mode .header {
-            background: linear-gradient(135deg, #0a2542 0%, #154874 100%);
         }
         
         .header h1 { 
@@ -91,14 +75,9 @@
             font-weight: 600; 
             color: #0a1931;
             margin-bottom: 6px;
-            transition: color 0.3s ease;
             font-size: 0.95rem;
             font-weight: 600;
             line-height: 1.4;
-        }
-
-        body.dark-mode label {
-            color: #6ab0ff;
         }
         
         input, select {
@@ -126,25 +105,6 @@
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 
                         0 1px 3px 0 rgba(0, 0, 0, 0.1);
             background: #ffffff;
-        }
-
-        body.dark-mode input, 
-        body.dark-mode select {
-            background: #2a3b52;
-            border-color: #3a506b;
-            color: #e1e8ed;
-        }
-
-        body.dark-mode input::placeholder {
-            color: #6B7280;
-        }
-
-        body.dark-mode input:focus,
-        body.dark-mode select:focus {
-            border-color: #60A5FA;
-            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1),
-                        0 1px 3px 0 rgba(0, 0, 0, 0.3);
-            background: #2a3b52;
         }
         
         .granite-grid {
@@ -174,21 +134,11 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(24, 90, 219, 0.25);
         }
-
-        body.dark-mode .granite-option {
-            background: #2a3b52;
-            border-color: #3a506b;
-            color: #e1e8ed;
-        }
         
         .granite-option.selected {
             border-color: #185adb;
             background: linear-gradient(135deg, #0a1931 0%, #185adb 50%, #3b82f6 100%);
             color: white;
-        }
-
-        body.dark-mode .granite-option.selected {
-            background: linear-gradient(135deg, #0a2542 0%, #1c6ea4 100%);
         }
         
         .granite-option input[type="radio"] { display: none; }
@@ -235,10 +185,6 @@
             opacity: 0.7;
             cursor: not-allowed;
             transform: none;
-        }
-
-        body.dark-mode .calculate-btn {
-            background: linear-gradient(135deg, #0a2542 0%, #1c6ea4 100%);
         }
         
         .success-animation {
@@ -322,11 +268,6 @@
             transform: translateY(0); 
             display: block;
         }
-
-        body.dark-mode .result {
-            background: linear-gradient(135deg, #1c2e45 0%, #223653 100%);
-            border-color: rgba(58, 80, 107, 0.3);
-        }
         
         .result h3 { 
             font-family: 'Poppins', sans-serif;
@@ -336,10 +277,6 @@
             line-height: 1.3;
             letter-spacing: -0.01em;
             margin-bottom: 20px; 
-        }
-
-        body.dark-mode .result h3 {
-            color: #6ab0ff;
         }
         
         .result-details {
@@ -361,11 +298,6 @@
             flex-direction: column;
             justify-content: center;
         }
-
-        body.dark-mode .result-item {
-            background: #2a3b52;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
         
         .result-item .label { 
             font-size: 0.85rem;
@@ -373,11 +305,6 @@
             line-height: 1.3;
             color: #6c757d; 
             margin-bottom: 5px;
-            transition: color 0.3s ease;
-        }
-
-        body.dark-mode .result-item .label {
-            color: #a0b3c9;
         }
         
         .result-item .value { 
@@ -386,12 +313,7 @@
             font-weight: 700;
             line-height: 1.2;
             color: #0a1931;
-            transition: color 0.3s ease;
             margin-top: 5px;
-        }
-
-        body.dark-mode .result-item .value {
-            color: #6ab0ff;
         }
         
         .whatsapp-btn {
@@ -454,11 +376,6 @@
             line-height: 1.3;
             display: block;
             margin-top: 4px;
-            transition: color 0.3s ease;
-        }
-
-        body.dark-mode small {
-            color: #a0b3c9;
         }
         
         .loading {
@@ -475,11 +392,6 @@
             height: 40px;
             animation: spin 1s linear infinite;
             margin: 0 auto 10px;
-        }
-
-        body.dark-mode .spinner {
-            border: 4px solid #2a3b52;
-            border-top: 4px solid #6ab0ff;
         }
         
         @keyframes spin {
@@ -501,62 +413,6 @@
             border: 1px solid #f5c6cb;
         }
 
-        body.dark-mode .alert-error {
-            background-color: #452a2e;
-            color: #e88d98;
-            border-color: #5c343a;
-        }
-
-        .dark-mode-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .dark-mode-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .dark-mode-toggle svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        body.dark-mode .dark-mode-toggle {
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        body.dark-mode .dark-mode-toggle:hover {
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .dark-mode-toggle .moon-icon {
-            display: none;
-        }
-
-        .dark-mode-toggle .sun-icon {
-            display: block;
-        }
-
-        body.dark-mode .dark-mode-toggle .moon-icon {
-            display: block;
-        }
-
-        body.dark-mode .dark-mode-toggle .sun-icon {
-            display: none;
-        }
-
         .tooltip {
             position: relative;
             display: inline-block;
@@ -565,20 +421,21 @@
         
         .tooltip .tooltiptext {
             visibility: hidden;
-            width: 200px;
+            width: 250px;
             background-color: #555;
             color: #fff;
             text-align: center;
             border-radius: 6px;
-            padding: 5px;
+            padding: 8px;
             position: absolute;
             z-index: 1;
             bottom: 125%;
             left: 50%;
-            margin-left: -100px;
+            margin-left: -125px;
             opacity: 0;
             transition: opacity 0.3s;
             font-size: 0.8rem;
+            line-height: 1.4;
         }
 
         .tooltip:hover .tooltiptext {
@@ -594,11 +451,6 @@
             color: white;
             font-size: 0.85rem;
             line-height: 1.4;
-            transition: color 0.3s ease;
-        }
-
-        body.dark-mode .footer {
-            color: #e1e8ed;
         }
 
         .footer p {
@@ -743,25 +595,8 @@
     </style>
 </head>
 <body>
-    <!-- SEMUA HTML CONTENT TETAP SAMA PERSIS -->
     <div class="container">
         <div class="header">
-            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
             <h1>Kalkulator Keramik/Granit<br>Sekawan Jaya</h1>
             <p>Hitung kebutuhan keramik/granit untuk proyek Anda dengan akurat</p>
         </div>
@@ -798,51 +633,51 @@
                     <label>Pilih Ukuran Keramik/Granit 
                         <span class="tooltip">ℹ️
                             <span class="tooltiptext">
-							<strong>Isi per Dus:</strong><br>
-							25×25: 16 pcs | 25×40: 10 pcs<br>
-							30×60: 6 pcs | 40×40: 6 pcs<br>
-							50×50: 4 pcs | 60×60: 4 pcs<br>
-							60×120: 4 pcs
-						</span>
-					</span>
-				</label>
+                                <strong>Isi per Dus:</strong><br>
+                                25×25: 16 pcs | 25×40: 10 pcs<br>
+                                30×60: 6 pcs | 40×40: 6 pcs<br>
+                                50×50: 4 pcs | 60×60: 4 pcs<br>
+                                60×120: 4 pcs
+                            </span>
+                        </span>
+                    </label>
                     <div class="granite-grid">
-						<div class="granite-option" data-size="25x25" data-area="1.00">
-							<input type="radio" name="graniteSize" value="25x25">
-							<div class="granite-size">25×25 cm</div>
-							<div class="granite-area">1.00 m²/dus</div>
-						</div>
-						<div class="granite-option" data-size="25x40" data-area="1.00">
-							<input type="radio" name="graniteSize" value="25x40">
-							<div class="granite-size">25×40 cm</div>
-							<div class="granite-area">1.00 m²/dus</div>
-						</div>
-						<div class="granite-option" data-size="30x60" data-area="1.08">
-							<input type="radio" name="graniteSize" value="30x60">
-							<div class="granite-size">30×60 cm</div>
-							<div class="granite-area">1.08 m²/dus</div>
-						</div>
-						<div class="granite-option" data-size="40x40" data-area="0.96">
-							<input type="radio" name="graniteSize" value="40x40">
-							<div class="granite-size">40×40 cm</div>
-							<div class="granite-area">0.96 m²/dus</div>
-						</div>
-						<div class="granite-option" data-size="50x50" data-area="1.00">
-							<input type="radio" name="graniteSize" value="50x50">
-							<div class="granite-size">50×50 cm</div>
-							<div class="granite-area">1.00 m²/dus</div>
-						</div>
-						<div class="granite-option" data-size="60x60" data-area="1.44">
-							<input type="radio" name="graniteSize" value="60x60">
-							<div class="granite-size">60×60 cm</div>
-							<div class="granite-area">1.44 m²/dus</div>
-						</div>
-						<div class="granite-option" data-size="60x120" data-area="2.88">
-							<input type="radio" name="graniteSize" value="60x120">
-							<div class="granite-size">60×120 cm</div>
-							<div class="granite-area">2.88 m²/dus</div>
-						</div>
-					</div>
+                        <div class="granite-option" data-size="25x25" data-area="1.00">
+                            <input type="radio" name="graniteSize" value="25x25">
+                            <div class="granite-size">25×25 cm</div>
+                            <div class="granite-area">1.00 m²/dus</div>
+                        </div>
+                        <div class="granite-option" data-size="25x40" data-area="1.00">
+                            <input type="radio" name="graniteSize" value="25x40">
+                            <div class="granite-size">25×40 cm</div>
+                            <div class="granite-area">1.00 m²/dus</div>
+                        </div>
+                        <div class="granite-option" data-size="30x60" data-area="1.08">
+                            <input type="radio" name="graniteSize" value="30x60">
+                            <div class="granite-size">30×60 cm</div>
+                            <div class="granite-area">1.08 m²/dus</div>
+                        </div>
+                        <div class="granite-option" data-size="40x40" data-area="0.96">
+                            <input type="radio" name="graniteSize" value="40x40">
+                            <div class="granite-size">40×40 cm</div>
+                            <div class="granite-area">0.96 m²/dus</div>
+                        </div>
+                        <div class="granite-option" data-size="50x50" data-area="1.00">
+                            <input type="radio" name="graniteSize" value="50x50">
+                            <div class="granite-size">50×50 cm</div>
+                            <div class="granite-area">1.00 m²/dus</div>
+                        </div>
+                        <div class="granite-option" data-size="60x60" data-area="1.44">
+                            <input type="radio" name="graniteSize" value="60x60">
+                            <div class="granite-size">60×60 cm</div>
+                            <div class="granite-area">1.44 m²/dus</div>
+                        </div>
+                        <div class="granite-option" data-size="60x120" data-area="2.88">
+                            <input type="radio" name="graniteSize" value="60x120">
+                            <div class="granite-size">60×120 cm</div>
+                            <div class="granite-area">2.88 m²/dus</div>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" class="calculate-btn" id="calculateBtn">
@@ -910,9 +745,7 @@
         <p>© Copyright 2025, Sekawan Jaya, All Rights Reserved.</p>
     </div>
 
-    <!-- SEMUA JAVASCRIPT TETAP SAMA PERSIS -->
     <script>
-        // JavaScript tetap sama persis seperti sebelumnya
         // Pilih ukuran dengan hide previous results
         document.querySelectorAll('.granite-option').forEach(option => {
             option.addEventListener('click', function() {
@@ -936,15 +769,6 @@
                     }, 300);
                 }
             });
-        });
-
-        // Dark Mode Functionality
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        
-        // Toggle dark mode
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
         });
 
         // Fungsi yang hilang: resetCalculationState
@@ -1024,7 +848,7 @@
             }, 300);
         }
 
-        // Enhanced print function with dark mode support
+        // Print function tanpa dark mode
         function printResult() {
             const name = document.getElementById('customerName').value;
             const phone = document.getElementById('phoneNumber').value;
@@ -1034,8 +858,6 @@
             const selectedSize = document.getElementById('selectedSize').textContent;
             const totalBoxes = document.getElementById('totalBoxes').textContent;
             const totalWithBuffer = document.getElementById('totalWithBuffer').textContent;
-            
-            const isDark = document.body.classList.contains('dark-mode');
             
             const printWindow = window.open('', '_blank');
             printWindow.document.write(`
@@ -1048,27 +870,27 @@
                             padding: 20px; 
                             max-width: 800px; 
                             margin: 0 auto; 
-                            ${isDark ? 'background: #2d2d2d; color: #ffffff;' : 'background: white; color: #333;'}
+                            background: white; color: #333;
                         }
                         .header { 
                             text-align: center; 
-                            border-bottom: 2px solid ${isDark ? '#4a4a4a' : '#0a1931'}; 
+                            border-bottom: 2px solid #0a1931; 
                             padding-bottom: 20px; 
                             margin-bottom: 30px; 
                         }
                         .header h1 { 
-                            color: ${isDark ? '#185adb' : '#0a1931'}; 
+                            color: #0a1931; 
                             margin-bottom: 5px; 
                         }
-                        .header p { color: ${isDark ? '#cccccc' : '#666'}; }
+                        .header p { color: #666; }
                         .customer-info { 
-                            background: ${isDark ? '#3a3a3a' : '#f8f9fa'}; 
+                            background: #f8f9fa; 
                             padding: 20px; 
                             border-radius: 8px; 
                             margin-bottom: 30px; 
                         }
                         .customer-info h3 { 
-                            color: ${isDark ? '#185adb' : '#0a1931'}; 
+                            color: #0a1931; 
                             margin-bottom: 15px; 
                         }
                         .info-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
@@ -1080,28 +902,28 @@
                             margin: 20px 0; 
                         }
                         .result-item { 
-                            border: 1px solid ${isDark ? '#4a4a4a' : '#ddd'}; 
-                            background: ${isDark ? '#3a3a3a' : 'white'};
+                            border: 1px solid #ddd; 
+                            background: white;
                             padding: 15px; 
                             text-align: center; 
                             border-radius: 8px;
                         }
                         .result-item .label { 
                             font-size: 14px; 
-                            color: ${isDark ? '#999999' : '#666'}; 
+                            color: #666; 
                             margin-bottom: 8px; 
                         }
                         .result-item .value { 
                             font-size: 18px; 
                             font-weight: bold; 
-                            color: ${isDark ? '#185adb' : '#0a1931'}; 
+                            color: #0a1931; 
                         }
                         .footer { 
                             text-align: center; 
                             margin-top: 40px; 
                             padding-top: 20px; 
-                            border-top: 1px solid ${isDark ? '#4a4a4a' : '#ddd'}; 
-                            color: ${isDark ? '#cccccc' : '#666'}; 
+                            border-top: 1px solid #ddd; 
+                            color: #666; 
                         }
                         @media print {
                             body { margin: 0; padding: 15px; background: white !important; color: black !important; }
@@ -1135,7 +957,7 @@
                     </div>
                     
                     <div class="result">
-                        <h3 style="text-align: center; color: ${isDark ? '#185adb' : '#0a1931'};">📊 Hasil Perhitungan</h3>
+                        <h3 style="text-align: center; color: #0a1931;">📊 Hasil Perhitungan</h3>
                         <div class="result-details">
                             <div class="result-item">
                                 <div class="label">Luas Area</div>
@@ -1174,7 +996,7 @@
         document.getElementById('graniteForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            console.log("Form submitted!"); // Debug log
+            console.log("Form submitted!");
             
             // Reset state before starting new calculation
             resetCalculationState();
@@ -1185,7 +1007,7 @@
             const width = parseFloat(document.getElementById('roomWidth').value);
             const selectedOption = document.querySelector('input[name="graniteSize"]:checked');
             
-            console.log("Form data:", {name, phone, length, width, selectedOption}); // Debug log
+            console.log("Form data:", {name, phone, length, width, selectedOption});
             
             // Enhanced validation
             if (!name || name.length < 2) {
@@ -1221,7 +1043,7 @@
                 return;
             }
             
-            console.log("Validation passed, calculating..."); // Debug log
+            console.log("Validation passed, calculating...");
             
             const graniteSize = selectedOption.value;
             const selectedDiv = document.querySelector(`.granite-option[data-size="${graniteSize}"]`);
@@ -1231,9 +1053,9 @@
             const totalBoxes = Math.ceil(totalArea / areaPerBox);
             const totalWithBuffer = Math.ceil(totalBoxes * 1.1); // +10% cadangan
             
-            console.log("Calculation results:", {totalArea, totalBoxes, totalWithBuffer}); // Debug log
+            console.log("Calculation results:", {totalArea, totalBoxes, totalWithBuffer});
             
-            // FIXED TIMING: Update hasil perhitungan ke UI tapi jangan tampilkan dulu
+            // Update hasil perhitungan ke UI
             document.getElementById('totalArea').textContent = totalArea.toFixed(2) + ' m²';
             document.getElementById('selectedSize').textContent = graniteSize + ' cm';
             document.getElementById('totalBoxes').textContent = totalBoxes + ' dus';
@@ -1311,7 +1133,7 @@ _Dihitung via Kalkulator Sekawan Jaya_`;
                     retryCount++;
                     if (retryCount < maxRetries) {
                         console.log(`🔄 Mencoba lagi... (${retryCount}/${maxRetries})`);
-                        setTimeout(sendData, 2000 * retryCount); // Increasing delay
+                        setTimeout(sendData, 2000 * retryCount);
                     } else {
                         console.log("⚠ Gagal setelah 3 kali percobaan");
                         showAlert('error');
@@ -1321,19 +1143,19 @@ _Dihitung via Kalkulator Sekawan Jaya_`;
             
             sendData();
 
-            // FIXED SEQUENCE: Show success animation first, then results
+            // Show success animation first, then results
             setTimeout(() => {
-                console.log("Starting success animation..."); // Debug log
+                console.log("Starting success animation...");
                 showLoading(false);
-                showSuccess(); // Show checkmark animation first
+                showSuccess();
                 
                 // After success animation starts, show results
                 setTimeout(() => {
-                    console.log("Showing results..."); // Debug log
-                    showResults(); // Show calculation results with smooth scroll
-                }, 1000); // Delay hasil sampai animasi centang terlihat dulu
+                    console.log("Showing results...");
+                    showResults();
+                }, 1000);
                 
-            }, 1500); // Simulasi processing time
+            }, 1500);
         });
 
         // Real-time validation indicators
