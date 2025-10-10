@@ -15,6 +15,8 @@
             min-height: 100vh; 
             padding: 10px;
             transition: background 0.3s ease;
+            font-size: 15px;
+            line-height: 1.5;
         }
 
         body.dark-mode {
@@ -51,12 +53,16 @@
         
         .header h1 { 
             font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem; 
+            font-size: 1.6rem;
             font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
             margin-bottom: 8px; 
         }
         .header p { 
-            font-size: 1rem; 
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.4;
             opacity: 0.95; 
         }
         
@@ -80,48 +86,48 @@
             min-width: 200px;
         }
         
-        /* IMPROVED LABEL STYLES */
         label {
             display: block; 
             font-weight: 600; 
             color: #0a1931;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             transition: color 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.4;
         }
 
         body.dark-mode label {
             color: #6ab0ff;
         }
         
-        /* IMPROVED INPUT STYLES - FOCUS ON INPUT FIELD ONLY */
         input, select {
             width: 100%; 
             padding: 14px 16px;
-            border: 2px solid #D1D5DB; /* Changed from #e1e8ed to neutral gray */
-            border-radius: 8px; /* Changed from 10px to 8px for modern look */
-            font-size: 16px; /* Increased from 1rem for better mobile experience */
+            border: 2px solid #D1D5DB;
+            border-radius: 8px;
+            font-size: 15px;
             background: #ffffff;
             color: #111827;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-family: inherit;
+            font-weight: 400;
+            line-height: 1.4;
         }
 
-        /* Improved placeholder styling */
         input::placeholder {
-            color: #9CA3AF; /* Changed from default to lighter gray */
+            color: #9CA3AF;
             opacity: 1;
         }
 
-        /* FOCUS STATE - Blue brand color with subtle glow */
         input:focus, select:focus {
             outline: none; 
-            border-color: #3B82F6; /* Changed to brand blue */
+            border-color: #3B82F6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 
-                        0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Added subtle glow */
+                        0 1px 3px 0 rgba(0, 0, 0, 0.1);
             background: #ffffff;
         }
 
-        /* Dark mode input styles */
         body.dark-mode input, 
         body.dark-mode select {
             background: #2a3b52;
@@ -141,7 +147,6 @@
             background: #2a3b52;
         }
         
-        /* Grid untuk opsi keramik */
         .granite-grid {
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -191,15 +196,16 @@
         .granite-size { 
             font-family: 'Poppins', sans-serif;
             font-weight: 600; 
-            font-size: 1rem; 
+            font-size: 0.95rem;
             margin-bottom: 4px; 
-            line-height: 1.2;
+            line-height: 1.3;
         }
         
         .granite-area { 
-            font-size: 0.85rem; 
-            opacity: 0.8; 
+            font-size: 0.8rem; 
+            font-weight: 400;
             line-height: 1.2;
+            opacity: 0.8; 
         }
         
         .calculate-btn {
@@ -208,8 +214,9 @@
             color: white; 
             border: none; 
             padding: 16px; 
-            font-size: 1.1rem; 
+            font-size: 1rem;
             font-weight: 600;
+            line-height: 1.4;
             border-radius: 12px; 
             cursor: pointer; 
             margin: 25px 0;
@@ -234,7 +241,6 @@
             background: linear-gradient(135deg, #0a2542 0%, #1c6ea4 100%);
         }
         
-        /* Success Checkmark Animation */
         .success-animation {
             position: absolute;
             top: 50%;
@@ -325,8 +331,10 @@
         .result h3 { 
             font-family: 'Poppins', sans-serif;
             color: #0a1931; 
-            font-size: 1.5rem; 
+            font-size: 1.3rem;
             font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
             margin-bottom: 20px; 
         }
 
@@ -360,7 +368,9 @@
         }
         
         .result-item .label { 
-            font-size: 0.9rem; 
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.3;
             color: #6c757d; 
             margin-bottom: 5px;
             transition: color 0.3s ease;
@@ -372,8 +382,9 @@
         
         .result-item .value { 
             font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem; 
-            font-weight: 700; 
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.2;
             color: #0a1931;
             transition: color 0.3s ease;
             margin-top: 5px;
@@ -388,8 +399,9 @@
             color: white; 
             border: none;
             padding: 16px 30px; 
-            font-size: 1.1rem; 
+            font-size: 0.95rem;
             font-weight: 600;
+            line-height: 1.4;
             border-radius: 12px; 
             cursor: pointer; 
             text-decoration: none;
@@ -413,7 +425,8 @@
             border: none;
             padding: 12px 20px;
             font-size: 0.95rem;
-            font-weight: 500;
+            font-weight: 600;
+            line-height: 1.4;
             border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
@@ -437,7 +450,8 @@
         
         small {
             color: #6c757d;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            line-height: 1.3;
             display: block;
             margin-top: 4px;
             transition: color 0.3s ease;
@@ -493,7 +507,6 @@
             border-color: #5c343a;
         }
 
-        /* Dark Mode Toggle */
         .dark-mode-toggle {
             position: absolute;
             top: 20px;
@@ -544,7 +557,6 @@
             display: none;
         }
 
-        /* Tooltip */
         .tooltip {
             position: relative;
             display: inline-block;
@@ -574,14 +586,14 @@
             opacity: 1;
         }
 
-        /* Footer Styles */
         .footer {
             text-align: center;
             padding: 20px;
             margin: 20px auto 10px auto;
             max-width: 1000px;
             color: white;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
             transition: color 0.3s ease;
         }
 
@@ -594,8 +606,11 @@
             opacity: 0.9;
         }
 
-        /* Responsiveness */
         @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+            
             .container {
                 margin: 5px auto 15px auto;
                 border-radius: 15px;
@@ -603,6 +618,16 @@
             .header {
                 padding: 25px 15px;
             }
+            
+            .header h1 {
+                font-size: 1.4rem;
+                line-height: 1.3;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
             .calculator {
                 padding: 20px 15px;
             }
@@ -612,7 +637,11 @@
             }
             
             input, select {
-                font-size: 16px; /* Prevent zoom on iOS */
+                font-size: 16px;
+            }
+            
+            label {
+                font-size: 0.9rem;
             }
             
             .result {
@@ -621,7 +650,7 @@
             }
             
             .result h3 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
                 margin-bottom: 20px;
             }
             
@@ -644,7 +673,7 @@
             }
             
             .result-item .value {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 font-weight: 700;
                 line-height: 1.2;
             }
@@ -654,7 +683,7 @@
                 justify-content: center;
                 margin: 8px 0;
                 padding: 14px 20px;
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .granite-grid {
@@ -665,10 +694,10 @@
                 padding: 10px 5px;
             }
             .granite-size {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             .granite-area {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
             
             .footer {
@@ -679,6 +708,10 @@
         }
 
         @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
             .result-details {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
@@ -694,7 +727,7 @@
             }
             
             .result-item .value {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .granite-grid {
@@ -710,6 +743,7 @@
     </style>
 </head>
 <body>
+    <!-- SEMUA HTML CONTENT TETAP SAMA PERSIS -->
     <div class="container">
         <div class="header">
             <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
@@ -860,6 +894,7 @@
         <p>© Copyright 2025, Sekawan Jaya, All Rights Reserved.</p>
     </div>
 
+    <!-- SEMUA JAVASCRIPT TETAP SAMA PERSIS -->
     <script>
         // JavaScript tetap sama persis seperti sebelumnya
         // Pilih ukuran dengan hide previous results
