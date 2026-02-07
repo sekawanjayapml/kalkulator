@@ -2,12 +2,35 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Seserahan Nikah">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Catatan Seserahan Nikah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#f8f9fa">
     <style>
+        :root {
+            --primary: #9d8a7e;
+            --primary-light: #c5b5a9;
+            --primary-dark: #7a6a5f;
+            --secondary: #b8a89d;
+            --accent: #d4b8a4;
+            --success: #a3c9a8;
+            --warning: #f5c6a5;
+            --danger: #e8a49c;
+            --light: #f8f9fa;
+            --dark: #5a5a5a;
+            --gray: #e0e0e0;
+            --gray-light: #f5f5f5;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.03);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.3s ease;
+            --safe-area-top: env(safe-area-inset-top, 0px);
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,380 +38,354 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        :root {
-            --primary: #FF9B9B;
-            --primary-dark: #FF8585;
-            --secondary: #FFC8C8;
-            --bg: #F8F9FA;
-            --card: #FFFFFF;
-            --text: #2C3E50;
-            --text-light: #7F8C8D;
-            --border: #E9ECEF;
-            --success: #A8E6CF;
-            --warning: #FFD3B6;
-            --shadow: rgba(0, 0, 0, 0.05);
-            --shadow-hover: rgba(0, 0, 0, 0.1);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.5;
+            padding-top: var(--safe-area-top);
+            padding-bottom: calc(80px + var(--safe-area-bottom));
+            max-width: 100vw;
+            overflow-x: hidden;
+            min-height: 100vh;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            padding-bottom: env(safe-area-inset-bottom);
-            overflow-x: hidden;
+        .container {
+            width: 100%;
+            padding: 0 20px;
+            margin: 0 auto;
         }
 
         /* Header */
         .header {
-            background: var(--card);
-            padding: max(env(safe-area-inset-top), 16px) 20px 16px;
-            border-bottom: 1px solid var(--border);
+            padding: 20px 0 10px;
+            background-color: var(--light);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 10;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .header h1 {
-            font-size: 24px;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-dark);
             text-align: center;
+            margin-bottom: 5px;
         }
 
-        .header p {
-            font-size: 13px;
-            color: var(--text-light);
+        .header-subtitle {
             text-align: center;
-            margin-top: 4px;
-        }
-
-        /* Container */
-        .container {
-            padding: 20px;
-            padding-bottom: 100px;
-            max-width: 480px;
-            margin: 0 auto;
+            color: var(--primary-light);
+            font-size: 0.9rem;
         }
 
         /* Card */
         .card {
-            background: var(--card);
-            border-radius: 16px;
+            background: white;
+            border-radius: var(--radius);
             padding: 20px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 12px var(--shadow);
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
         }
 
-        .card:active {
-            transform: scale(0.98);
+        .card:hover {
+            box-shadow: var(--shadow-light);
         }
 
         .card-title {
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text);
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Summary Cards */
-        .summary-grid {
+        .card-title i {
+            color: var(--primary);
+        }
+
+        /* Dashboard Stats */
+        .stats-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 16px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .summary-card {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: 16px;
-            padding: 16px;
-            color: white;
-            box-shadow: 0 4px 12px rgba(255, 155, 155, 0.2);
+        .stat-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
         }
 
-        .summary-card.success {
-            background: linear-gradient(135deg, #A8E6CF 0%, #C1F0DC 100%);
+        .stat-card:active {
+            transform: scale(0.98);
         }
 
-        .summary-card.warning {
-            background: linear-gradient(135deg, #FFD3B6 0%, #FFE5D3 100%);
-        }
-
-        .summary-label {
-            font-size: 12px;
-            opacity: 0.9;
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-
-        .summary-value {
-            font-size: 20px;
+        .stat-value {
+            font-size: 1.4rem;
             font-weight: 700;
+            color: var(--primary-dark);
+            margin: 8px 0;
         }
 
-        .summary-value.large {
-            font-size: 28px;
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--primary-light);
+        }
+
+        .stat-positive {
+            color: var(--success);
+        }
+
+        .stat-negative {
+            color: var(--danger);
         }
 
         /* Progress Bar */
         .progress-container {
-            margin: 20px 0;
+            margin: 25px 0;
         }
 
-        .progress-label {
+        .progress-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
-            font-size: 13px;
-            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
         .progress-bar {
-            height: 12px;
-            background: var(--border);
-            border-radius: 6px;
+            height: 10px;
+            background-color: var(--gray);
+            border-radius: 5px;
             overflow: hidden;
-            position: relative;
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 6px;
-            transition: width 0.5s ease;
-            box-shadow: 0 2px 4px rgba(255, 155, 155, 0.3);
+            background: linear-gradient(90deg, var(--primary-light), var(--primary));
+            border-radius: 5px;
+            transition: width 0.8s ease;
         }
 
-        /* Input Group */
-        .input-group {
-            margin-bottom: 16px;
+        /* List Items */
+        .list {
+            list-style: none;
         }
 
-        .input-label {
-            display: block;
-            font-size: 13px;
-            font-weight: 500;
-            margin-bottom: 6px;
-            color: var(--text);
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: var(--bg);
-        }
-
-        .input-field:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: white;
-        }
-
-        /* Button */
-        .btn {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            touch-action: manipulation;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(255, 155, 155, 0.3);
-        }
-
-        .btn-primary:active {
-            transform: scale(0.97);
-            box-shadow: 0 2px 8px rgba(255, 155, 155, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--bg);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .btn-small {
-            padding: 8px 16px;
-            font-size: 13px;
-            width: auto;
-        }
-
-        .btn-danger {
-            background: #FF6B6B;
-            color: white;
-        }
-
-        /* List Item */
         .list-item {
-            padding: 16px;
-            background: var(--bg);
-            border-radius: 12px;
-            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s ease;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--gray-light);
+            cursor: pointer;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+            transition: background-color 0.2s ease;
         }
 
         .list-item:active {
-            transform: scale(0.98);
+            background-color: rgba(0,0,0,0.03);
+            border-radius: var(--radius-sm);
         }
 
-        .list-item-info {
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info {
             flex: 1;
         }
 
-        .list-item-title {
+        .item-title {
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            font-size: 0.85rem;
+            color: var(--primary-light);
+        }
+
+        .item-amount {
             font-weight: 600;
-            margin-bottom: 4px;
-            font-size: 15px;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
         }
 
-        .list-item-subtitle {
-            font-size: 13px;
-            color: var(--text-light);
-        }
-
-        .list-item-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .icon-btn {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            border: none;
-            background: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px var(--shadow);
-            touch-action: manipulation;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        .icon-btn:active {
-            transform: scale(0.9);
-        }
-
-        /* Status Badge */
-        .status-badge {
-            padding: 6px 12px;
+        .item-status {
+            font-size: 0.8rem;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            -webkit-user-select: none;
-            user-select: none;
+            font-weight: 500;
         }
 
         .status-pending {
-            background: var(--warning);
-            color: #8B6914;
+            background-color: var(--warning);
+            color: #8a5a00;
         }
 
-        .status-completed {
-            background: var(--success);
-            color: #2D6A4F;
+        .status-done {
+            background-color: var(--success);
+            color: #1a531b;
         }
 
-        /* Navigation */
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            width: 100%;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.2);
+            touch-action: manipulation;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--gray-light);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gray);
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-small {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .btn-icon {
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        /* Bottom Navigation */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid var(--border);
-            padding: 8px 0 calc(env(safe-area-inset-bottom) + 8px);
+            background-color: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 10px 20px var(--safe-area-bottom);
             display: flex;
             justify-content: space-around;
+            align-items: center;
             z-index: 100;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .nav-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
-            padding: 8px 16px;
+            justify-content: center;
+            color: var(--primary-light);
+            text-decoration: none;
+            padding: 8px;
+            flex: 1;
+            transition: var(--transition);
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
             cursor: pointer;
-            color: var(--text-light);
-            transition: all 0.3s ease;
-            border: none;
-            background: none;
-            font-size: 11px;
-            font-weight: 500;
-            touch-action: manipulation;
-            -webkit-user-select: none;
-            user-select: none;
+        }
+
+        .nav-item:active {
+            transform: scale(0.95);
         }
 
         .nav-item.active {
-            color: var(--primary-dark);
+            color: var(--primary);
         }
 
         .nav-icon {
-            font-size: 24px;
-            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
         }
 
-        .nav-item.active .nav-icon {
-            transform: scale(1.1);
+        .nav-label {
+            font-size: 0.7rem;
+            font-weight: 500;
         }
 
-        /* FAB */
+        /* Floating Action Button */
         .fab {
             position: fixed;
-            bottom: calc(80px + env(safe-area-inset-bottom));
+            bottom: 90px;
             right: 20px;
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background-color: var(--primary);
             color: white;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(255, 155, 155, 0.4);
-            transition: all 0.3s ease;
-            z-index: 99;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 20px rgba(157, 138, 126, 0.3);
+            z-index: 99;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.3);
             touch-action: manipulation;
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         .fab:active {
-            transform: scale(0.9);
+            background-color: var(--primary-dark);
+            transform: scale(0.95);
         }
 
         /* Modal */
@@ -399,87 +396,154 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             z-index: 200;
-            animation: fadeIn 0.3s ease;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .modal.active {
             display: flex;
-            align-items: flex-end;
         }
 
         .modal-content {
-            background: white;
-            border-radius: 20px 20px 0 0;
-            padding: 24px 20px calc(env(safe-area-inset-bottom) + 20px);
+            background-color: white;
+            border-radius: var(--radius);
             width: 100%;
-            max-height: 80vh;
+            max-width: 500px;
+            max-height: 90vh;
             overflow-y: auto;
-            animation: slideUp 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: modalSlideIn 0.3s ease;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-light);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
         }
 
         .modal-title {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
         }
 
-        .close-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+        .modal-close {
+            background: none;
             border: none;
-            background: var(--bg);
-            font-size: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-light);
             cursor: pointer;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: var(--transition);
+            -webkit-appearance: none;
             touch-action: manipulation;
-            -webkit-user-select: none;
-            user-select: none;
         }
 
-        /* Empty State */
-        .empty-state {
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            background-color: white;
+            -webkit-appearance: none;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .form-actions .btn {
+            flex: 1;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--gray-light);
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            flex: 1;
             text-align: center;
-            padding: 40px 20px;
-            color: var(--text-light);
+            padding: 15px;
+            font-weight: 500;
+            color: var(--primary-light);
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+            touch-action: manipulation;
         }
 
-        .empty-icon {
-            font-size: 60px;
-            margin-bottom: 16px;
-            opacity: 0.5;
+        .tab:active {
+            background-color: rgba(0,0,0,0.03);
         }
 
-        .empty-text {
-            font-size: 15px;
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .tab-content {
+            display: none;
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
+        .tab-content.active {
+            display: block;
         }
 
-        /* Utilities */
-        .hidden {
-            display: none !important;
-        }
-
+        /* Utility */
         .text-center {
             text-align: center;
         }
@@ -488,795 +552,1269 @@
             margin-top: 20px;
         }
 
-        .mb-10 {
-            margin-bottom: 10px;
+        .mb-20 {
+            margin-bottom: 20px;
         }
 
-        /* Transaction Item */
-        .transaction-item {
+        .d-none {
+            display: none !important;
+        }
+
+        .d-flex {
             display: flex;
-            gap: 12px;
-            padding: 16px;
-            background: var(--bg);
-            border-radius: 12px;
-            margin-bottom: 10px;
         }
 
-        .transaction-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
+        .gap-10 {
+            gap: 10px;
         }
 
-        .transaction-icon.income {
-            background: var(--success);
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--primary-light);
         }
 
-        .transaction-icon.expense {
-            background: var(--warning);
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
         }
 
-        .transaction-details {
-            flex: 1;
+        .empty-state p {
+            font-size: 1rem;
         }
 
-        .transaction-title {
-            font-weight: 600;
-            margin-bottom: 4px;
+        /* Responsive */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
-        .transaction-date {
-            font-size: 12px;
-            color: var(--text-light);
-        }
-
-        .transaction-amount {
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .transaction-amount.income {
-            color: #2D6A4F;
-        }
-
-        .transaction-amount.expense {
-            color: #8B6914;
+        /* Safari-specific optimizations */
+        @supports (-webkit-touch-callout: none) {
+            .card, .stat-card, .btn {
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            .modal {
+                -webkit-backdrop-filter: blur(5px);
+            }
+            
+            .bottom-nav {
+                -webkit-backdrop-filter: blur(10px);
+            }
+            
+            input, select, textarea, button {
+                font-size: 16px !important; /* Mencegah zoom pada input di iOS */
+            }
+            
+            /* Fix untuk iOS Safari */
+            .nav-item, .tab, .btn, .list-item, .stat-card {
+                cursor: pointer;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <div class="header">
-        <h1>💍 Seserahan Nikah</h1>
-        <p>Catatan Tabungan & Kebutuhan</p>
-    </div>
+    <header class="header">
+        <div class="container">
+            <h1>Catatan Seserahan Nikah</h1>
+            <div class="header-subtitle">Kelola tabungan & kebutuhan seserahan dengan mudah</div>
+        </div>
+    </header>
 
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Dashboard View -->
-        <div id="dashboard-view">
-            <!-- Summary Cards -->
-            <div class="summary-grid">
-                <div class="summary-card">
-                    <div class="summary-label">Total Tabungan</div>
-                    <div class="summary-value" id="total-savings">Rp 0</div>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Dashboard Tab -->
+        <div id="dashboard-tab" class="tab-content active">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-label">Total Tabungan</div>
+                    <div id="total-savings" class="stat-value">Rp 0</div>
                 </div>
-                <div class="summary-card success">
-                    <div class="summary-label">Sisa Dana</div>
-                    <div class="summary-value" id="remaining-funds">Rp 0</div>
+                <div class="stat-card">
+                    <div class="stat-label">Target Dana</div>
+                    <div id="target-amount" class="stat-value">Rp 10.000.000</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Pengeluaran</div>
+                    <div id="total-expenses" class="stat-value stat-negative">Rp 0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Sisa Dana</div>
+                    <div id="remaining-balance" class="stat-value stat-positive">Rp 0</div>
                 </div>
             </div>
 
-            <div class="summary-grid">
-                <div class="summary-card warning">
-                    <div class="summary-label">Total Pengeluaran</div>
-                    <div class="summary-value" id="total-expenses">Rp 0</div>
-                </div>
-                <div class="summary-card" style="background: linear-gradient(135deg, #B4A7D6 0%, #C9BFEA 100%)">
-                    <div class="summary-label">Target Dana</div>
-                    <div class="summary-value" id="target-amount">Rp 0</div>
-                </div>
-            </div>
-
-            <!-- Progress -->
             <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-chart-line"></i> Progres Tabungan
+                </div>
                 <div class="progress-container">
-                    <div class="progress-label">
-                        <span>Progress Tabungan</span>
+                    <div class="progress-header">
+                        <span>Terkumpul</span>
                         <span id="progress-percentage">0%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Target Setting -->
             <div class="card">
-                <div class="card-title">🎯 Target Dana Nikah</div>
-                <div class="input-group">
-                    <input type="number" class="input-field" id="target-input" placeholder="Masukkan target dana (Rp)">
+                <div class="card-title">
+                    <i class="fas fa-calendar-alt"></i> Tabungan Terbaru
                 </div>
-                <button class="btn btn-primary" id="set-target-btn">
-                    Atur Target
+                <div id="recent-savings-list"></div>
+                <div id="empty-savings" class="empty-state d-none">
+                    <i class="fas fa-piggy-bank"></i>
+                    <p>Belum ada catatan tabungan</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-list-alt"></i> Kebutuhan Belum Dibeli
+                </div>
+                <div id="pending-items-list"></div>
+                <div id="empty-pending" class="empty-state d-none">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Semua kebutuhan sudah dibeli</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Savings Tab -->
+        <div id="savings-tab" class="tab-content">
+            <div class="tabs">
+                <div class="tab active" data-tab="savings-list">Daftar Tabungan</div>
+                <div class="tab" data-tab="add-saving">Tambah Tabungan</div>
+            </div>
+
+            <div id="savings-list" class="tab-content active">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-history"></i> Riwayat Tabungan
+                    </div>
+                    <ul id="savings-history-list" class="list"></ul>
+                    <div id="empty-savings-history" class="empty-state d-none">
+                        <i class="fas fa-piggy-bank"></i>
+                        <p>Belum ada riwayat tabungan</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="add-saving" class="tab-content">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-plus-circle"></i> Tambah Tabungan Baru
+                    </div>
+                    <form id="savings-form">
+                        <div class="form-group">
+                            <label class="form-label" for="savings-amount">Jumlah (Rp)</label>
+                            <input type="number" id="savings-amount" class="form-control" placeholder="Contoh: 1500000" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="savings-date">Tanggal</label>
+                            <input type="date" id="savings-date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="savings-notes">Catatan (Opsional)</label>
+                            <input type="text" id="savings-notes" class="form-control" placeholder="Contoh: Gaji bulan Januari">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancel-saving">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Tabungan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seserahan Tab -->
+        <div id="seserahan-tab" class="tab-content">
+            <div class="tabs">
+                <div class="tab active" data-tab="items-list">Daftar Kebutuhan</div>
+                <div class="tab" data-tab="add-item">Tambah Kebutuhan</div>
+            </div>
+
+            <div id="items-list" class="tab-content active">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-shopping-cart"></i> Semua Kebutuhan Seserahan
+                    </div>
+                    <ul id="all-items-list" class="list"></ul>
+                    <div id="empty-items" class="empty-state d-none">
+                        <i class="fas fa-box-open"></i>
+                        <p>Belum ada kebutuhan seserahan</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="add-item" class="tab-content">
+                <div class="card">
+                    <div class="card-title">
+                        <i class="fas fa-plus-circle"></i> Tambah Kebutuhan Baru
+                    </div>
+                    <form id="item-form">
+                        <div class="form-group">
+                            <label class="form-label" for="item-name">Nama Barang</label>
+                            <input type="text" id="item-name" class="form-control" placeholder="Contoh: Cincin Tunangan" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="item-price">Perkiraan Harga (Rp)</label>
+                            <input type="number" id="item-price" class="form-control" placeholder="Contoh: 2500000" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="item-status">Status</label>
+                            <select id="item-status" class="form-select">
+                                <option value="pending">⏳ Belum dibeli</option>
+                                <option value="done">✅ Sudah dibeli</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancel-item">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Kebutuhan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div id="history-tab" class="tab-content">
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-history"></i> Riwayat Transaksi
+                </div>
+                <div class="tabs">
+                    <div class="tab active" data-tab="all-history">Semua</div>
+                    <div class="tab" data-tab="savings-history">Tabungan</div>
+                    <div class="tab" data-tab="expenses-history">Pengeluaran</div>
+                </div>
+
+                <div id="all-history" class="tab-content active">
+                    <div id="all-history-list"></div>
+                    <div id="empty-all-history" class="empty-state d-none">
+                        <i class="fas fa-history"></i>
+                        <p>Belum ada riwayat transaksi</p>
+                    </div>
+                </div>
+
+                <div id="savings-history" class="tab-content">
+                    <div id="savings-history-only-list"></div>
+                    <div id="empty-savings-only-history" class="empty-state d-none">
+                        <i class="fas fa-piggy-bank"></i>
+                        <p>Belum ada riwayat tabungan</p>
+                    </div>
+                </div>
+
+                <div id="expenses-history" class="tab-content">
+                    <div id="expenses-history-list"></div>
+                    <div id="empty-expenses-history" class="empty-state d-none">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Belum ada riwayat pengeluaran</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Management Card -->
+        <div class="card">
+            <div class="card-title">
+                <i class="fas fa-database"></i> Kelola Data
+            </div>
+            <div class="d-flex gap-10">
+                <button id="export-data" class="btn btn-secondary btn-small">
+                    <i class="fas fa-download"></i> Export Data
+                </button>
+                <button id="import-data" class="btn btn-secondary btn-small">
+                    <i class="fas fa-upload"></i> Import Data
+                </button>
+                <button id="reset-data" class="btn btn-danger btn-small">
+                    <i class="fas fa-trash"></i> Reset Data
                 </button>
             </div>
-
-            <!-- Quick Stats -->
-            <div class="card">
-                <div class="card-title">📊 Statistik</div>
-                <div class="list-item">
-                    <div class="list-item-info">
-                        <div class="list-item-title">Total Item Seserahan</div>
-                        <div class="list-item-subtitle">Kebutuhan yang tercatat</div>
-                    </div>
-                    <div style="font-size: 24px; font-weight: 700; color: var(--primary-dark);" id="total-items">0</div>
-                </div>
-                <div class="list-item">
-                    <div class="list-item-info">
-                        <div class="list-item-title">Item Terbeli</div>
-                        <div class="list-item-subtitle">Seserahan yang sudah dibeli</div>
-                    </div>
-                    <div style="font-size: 24px; font-weight: 700; color: #2D6A4F;" id="completed-items">0</div>
-                </div>
-                <div class="list-item">
-                    <div class="list-item-info">
-                        <div class="list-item-title">Sisa Kebutuhan</div>
-                        <div class="list-item-subtitle">Yang masih perlu dibeli</div>
-                    </div>
-                    <div style="font-size: 24px; font-weight: 700; color: #8B6914;" id="pending-items">0</div>
-                </div>
-            </div>
         </div>
+    </main>
 
-        <!-- Savings View -->
-        <div id="savings-view" class="hidden">
-            <div class="card">
-                <div class="card-title">📊 Riwayat Tabungan</div>
-                <div id="savings-list"></div>
-            </div>
-        </div>
-
-        <!-- Seserahan View -->
-        <div id="seserahan-view" class="hidden">
-            <div class="card">
-                <div class="card-title">🎁 Daftar Kebutuhan Seserahan</div>
-                <div id="seserahan-list"></div>
-            </div>
-        </div>
-
-        <!-- History View -->
-        <div id="history-view" class="hidden">
-            <div class="card">
-                <div class="card-title">📜 Riwayat Transaksi</div>
-                <div id="transaction-list"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FAB -->
-    <button class="fab" id="fab-button">+</button>
+    <!-- Floating Action Button -->
+    <button class="fab" id="fab">
+        <i class="fas fa-plus"></i>
+    </button>
 
     <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <button class="nav-item active" data-view="dashboard">
-            <div class="nav-icon">🏠</div>
-            <div>Dashboard</div>
-        </button>
-        <button class="nav-item" data-view="savings">
-            <div class="nav-icon">💰</div>
-            <div>Tabungan</div>
-        </button>
-        <button class="nav-item" data-view="seserahan">
-            <div class="nav-icon">🎁</div>
-            <div>Seserahan</div>
-        </button>
-        <button class="nav-item" data-view="history">
-            <div class="nav-icon">📜</div>
-            <div>Riwayat</div>
-        </button>
-    </div>
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active" data-tab="dashboard-tab">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="savings-tab">
+            <i class="fas fa-piggy-bank nav-icon"></i>
+            <span class="nav-label">Tabungan</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="seserahan-tab">
+            <i class="fas fa-gift nav-icon"></i>
+            <span class="nav-label">Seserahan</span>
+        </a>
+        <a href="#" class="nav-item" data-tab="history-tab">
+            <i class="fas fa-history nav-icon"></i>
+            <span class="nav-label">Riwayat</span>
+        </a>
+    </nav>
 
-    <!-- Add Menu Modal -->
-    <div id="add-menu-modal" class="modal">
+    <!-- Modal for Editing/Deleting -->
+    <div id="edit-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title">Tambah Data</div>
-                <button class="close-btn" onclick="closeModal('add-menu-modal')">✕</button>
+                <div class="modal-title" id="modal-title">Edit Data</div>
+                <button class="modal-close" id="close-modal">&times;</button>
             </div>
-            <button class="btn btn-primary mb-10" id="add-savings-menu-btn">
-                💰 Tambah Tabungan
-            </button>
-            <button class="btn btn-secondary" id="add-seserahan-menu-btn">
-                🎁 Tambah Kebutuhan Seserahan
-            </button>
+            <div class="modal-body">
+                <form id="edit-form">
+                    <input type="hidden" id="edit-id">
+                    <input type="hidden" id="edit-type">
+                    
+                    <div id="edit-savings-fields">
+                        <div class="form-group">
+                            <label class="form-label" for="edit-savings-amount">Jumlah (Rp)</label>
+                            <input type="number" id="edit-savings-amount" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="edit-savings-date">Tanggal</label>
+                            <input type="date" id="edit-savings-date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="edit-savings-notes">Catatan</label>
+                            <input type="text" id="edit-savings-notes" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div id="edit-item-fields">
+                        <div class="form-group">
+                            <label class="form-label" for="edit-item-name">Nama Barang</label>
+                            <input type="text" id="edit-item-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="edit-item-price">Perkiraan Harga (Rp)</label>
+                            <input type="number" id="edit-item-price" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="edit-item-status">Status</label>
+                            <select id="edit-item-status" class="form-select">
+                                <option value="pending">⏳ Belum dibeli</option>
+                                <option value="done">✅ Sudah dibeli</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-danger" id="delete-item">Hapus</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
-    <!-- Add Savings Modal -->
-    <div id="add-savings-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Tambah Tabungan</div>
-                <button class="close-btn" onclick="closeModal('add-savings-modal')">✕</button>
-            </div>
-            <div class="input-group">
-                <label class="input-label">Nominal Tabungan</label>
-                <input type="number" class="input-field" id="savings-amount" placeholder="Masukkan nominal (Rp)">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Tanggal</label>
-                <input type="date" class="input-field" id="savings-date">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Catatan (Opsional)</label>
-                <input type="text" class="input-field" id="savings-note" placeholder="Contoh: Gaji bulan Januari">
-            </div>
-            <button class="btn btn-primary" id="add-savings-btn">Simpan Tabungan</button>
-        </div>
-    </div>
-
-    <!-- Add Seserahan Modal -->
-    <div id="add-seserahan-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Tambah Kebutuhan Seserahan</div>
-                <button class="close-btn" onclick="closeModal('add-seserahan-modal')">✕</button>
-            </div>
-            <div class="input-group">
-                <label class="input-label">Nama Barang</label>
-                <input type="text" class="input-field" id="seserahan-name" placeholder="Contoh: Kain Batik">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Estimasi Harga</label>
-                <input type="number" class="input-field" id="seserahan-price" placeholder="Masukkan harga (Rp)">
-            </div>
-            <button class="btn btn-primary" id="add-seserahan-btn">Simpan Kebutuhan</button>
-        </div>
-    </div>
-
-    <!-- Edit Savings Modal -->
-    <div id="edit-savings-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Edit Tabungan</div>
-                <button class="close-btn" onclick="closeModal('edit-savings-modal')">✕</button>
-            </div>
-            <input type="hidden" id="edit-savings-id">
-            <div class="input-group">
-                <label class="input-label">Nominal Tabungan</label>
-                <input type="number" class="input-field" id="edit-savings-amount">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Tanggal</label>
-                <input type="date" class="input-field" id="edit-savings-date">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Catatan</label>
-                <input type="text" class="input-field" id="edit-savings-note">
-            </div>
-            <button class="btn btn-primary mb-10" id="save-edit-savings-btn">Simpan Perubahan</button>
-            <button class="btn btn-danger" id="delete-savings-btn">Hapus Tabungan</button>
-        </div>
-    </div>
-
-    <!-- Edit Seserahan Modal -->
-    <div id="edit-seserahan-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title">Edit Seserahan</div>
-                <button class="close-btn" onclick="closeModal('edit-seserahan-modal')">✕</button>
-            </div>
-            <input type="hidden" id="edit-seserahan-id">
-            <div class="input-group">
-                <label class="input-label">Nama Barang</label>
-                <input type="text" class="input-field" id="edit-seserahan-name">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Estimasi Harga</label>
-                <input type="number" class="input-field" id="edit-seserahan-price">
-            </div>
-            <div class="input-group">
-                <label class="input-label">Status</label>
-                <select class="input-field" id="edit-seserahan-status">
-                    <option value="pending">⏳ Belum Dibeli</option>
-                    <option value="completed">✅ Sudah Dibeli</option>
-                </select>
-            </div>
-            <button class="btn btn-primary mb-10" id="save-edit-seserahan-btn">Simpan Perubahan</button>
-            <button class="btn btn-danger" id="delete-seserahan-btn">Hapus Item</button>
-        </div>
-    </div>
+    <!-- File Input for Import (hidden) -->
+    <input type="file" id="import-file-input" accept=".json" style="display: none;">
 
     <script>
-        // Data Storage
-        let data = {
-            savings: [],
-            seserahan: [],
-            target: 0
-        };
+        // Data storage
+        let savings = [];
+        let items = [];
+        let targetAmount = 10000000; // Default target 10 juta
+
+        // Format currency to IDR
+        function formatCurrency(amount) {
+            return `Rp ${amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`;
+        }
+
+        // Get current date in YYYY-MM-DD format
+        function getCurrentDate() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
 
         // Load data from localStorage
         function loadData() {
-            const stored = localStorage.getItem('seserahan-nikah-data');
-            if (stored) {
-                data = JSON.parse(stored);
+            const savedSavings = localStorage.getItem('weddingSavings');
+            const savedItems = localStorage.getItem('weddingItems');
+            const savedTarget = localStorage.getItem('weddingTarget');
+            
+            if (savedSavings) {
+                savings = JSON.parse(savedSavings);
             }
-            updateDashboard();
-            renderSavingsList();
-            renderSeserahanList();
-            renderTransactionList();
+            
+            if (savedItems) {
+                items = JSON.parse(savedItems);
+            }
+            
+            if (savedTarget) {
+                targetAmount = parseInt(savedTarget);
+            }
+            
+            updateUI();
         }
 
         // Save data to localStorage
         function saveData() {
-            localStorage.setItem('seserahan-nikah-data', JSON.stringify(data));
-            updateDashboard();
-            renderSavingsList();
-            renderSeserahanList();
-            renderTransactionList();
+            localStorage.setItem('weddingSavings', JSON.stringify(savings));
+            localStorage.setItem('weddingItems', JSON.stringify(items));
+            localStorage.setItem('weddingTarget', targetAmount.toString());
         }
 
-        // Format currency
-        function formatRupiah(amount) {
-            return 'Rp ' + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        // Calculate totals
+        function calculateTotals() {
+            const totalSavings = savings.reduce((sum, item) => sum + item.amount, 0);
+            const totalExpenses = items
+                .filter(item => item.status === 'done')
+                .reduce((sum, item) => sum + item.price, 0);
+            const remainingBalance = totalSavings - totalExpenses;
+            const progressPercentage = targetAmount > 0 ? Math.min(100, Math.round((totalSavings / targetAmount) * 100)) : 0;
+            
+            return {
+                totalSavings,
+                totalExpenses,
+                remainingBalance,
+                progressPercentage
+            };
         }
 
-        // Update Dashboard
-        function updateDashboard() {
-            const totalSavings = data.savings.reduce((sum, s) => sum + s.amount, 0);
-            const totalExpenses = data.seserahan.filter(s => s.status === 'completed').reduce((sum, s) => sum + s.price, 0);
-            const remainingFunds = totalSavings - totalExpenses;
-            const completedItems = data.seserahan.filter(s => s.status === 'completed').length;
-            const pendingItems = data.seserahan.filter(s => s.status === 'pending').length;
+        // Update UI with current data
+        function updateUI() {
+            const totals = calculateTotals();
             
-            document.getElementById('total-savings').textContent = formatRupiah(totalSavings);
-            document.getElementById('total-expenses').textContent = formatRupiah(totalExpenses);
-            document.getElementById('remaining-funds').textContent = formatRupiah(remainingFunds);
-            document.getElementById('target-amount').textContent = formatRupiah(data.target);
-            document.getElementById('total-items').textContent = data.seserahan.length;
-            document.getElementById('completed-items').textContent = completedItems;
-            document.getElementById('pending-items').textContent = pendingItems;
+            // Update dashboard values
+            document.getElementById('total-savings').textContent = formatCurrency(totals.totalSavings);
+            document.getElementById('target-amount').textContent = formatCurrency(targetAmount);
+            document.getElementById('total-expenses').textContent = formatCurrency(totals.totalExpenses);
+            document.getElementById('remaining-balance').textContent = formatCurrency(totals.remainingBalance);
+            document.getElementById('progress-percentage').textContent = `${totals.progressPercentage}%`;
+            document.getElementById('progress-fill').style.width = `${totals.progressPercentage}%`;
             
-            // Progress
-            const progress = data.target > 0 ? Math.min((totalSavings / data.target) * 100, 100) : 0;
-            document.getElementById('progress-fill').style.width = progress + '%';
-            document.getElementById('progress-percentage').textContent = Math.round(progress) + '%';
+            // Update recent savings
+            updateRecentSavings();
             
-            // Set target input
-            document.getElementById('target-input').value = data.target || '';
+            // Update pending items
+            updatePendingItems();
+            
+            // Update savings history
+            updateSavingsHistory();
+            
+            // Update all items list
+            updateAllItemsList();
+            
+            // Update history lists
+            updateHistoryLists();
         }
 
-        // Set Target
-        function setTarget() {
-            const target = parseInt(document.getElementById('target-input').value) || 0;
-            data.target = target;
-            saveData();
-            alert('Target dana berhasil diatur!');
-        }
-
-        // Add Savings
-        function addSavings() {
-            const amount = parseInt(document.getElementById('savings-amount').value);
-            const date = document.getElementById('savings-date').value;
-            const note = document.getElementById('savings-note').value;
+        // Update recent savings list
+        function updateRecentSavings() {
+            const container = document.getElementById('recent-savings-list');
+            const emptyState = document.getElementById('empty-savings');
             
-            if (!amount || !date) {
-                alert('Mohon lengkapi nominal dan tanggal!');
+            if (savings.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
                 return;
             }
             
-            data.savings.push({
-                id: Date.now(),
-                amount: amount,
-                date: date,
-                note: note,
-                createdAt: new Date().toISOString()
-            });
+            emptyState.classList.add('d-none');
             
-            saveData();
-            closeModal('add-savings-modal');
-            document.getElementById('savings-amount').value = '';
-            document.getElementById('savings-date').value = '';
-            document.getElementById('savings-note').value = '';
-            alert('Tabungan berhasil ditambahkan!');
-        }
-
-        // Add Seserahan
-        function addSeserahan() {
-            const name = document.getElementById('seserahan-name').value;
-            const price = parseInt(document.getElementById('seserahan-price').value);
+            // Get 3 most recent savings
+            const recentSavings = [...savings]
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 3);
             
-            if (!name || !price) {
-                alert('Mohon lengkapi nama barang dan harga!');
-                return;
-            }
-            
-            data.seserahan.push({
-                id: Date.now(),
-                name: name,
-                price: price,
-                status: 'pending',
-                createdAt: new Date().toISOString()
-            });
-            
-            saveData();
-            closeModal('add-seserahan-modal');
-            document.getElementById('seserahan-name').value = '';
-            document.getElementById('seserahan-price').value = '';
-            alert('Kebutuhan seserahan berhasil ditambahkan!');
-        }
-
-        // Render Savings List
-        function renderSavingsList() {
-            const list = document.getElementById('savings-list');
-            
-            if (data.savings.length === 0) {
-                list.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">💰</div>
-                        <div class="empty-text">Belum ada catatan tabungan</div>
-                    </div>
-                `;
-                return;
-            }
-            
-            const sorted = [...data.savings].sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            list.innerHTML = sorted.map(s => `
-                <div class="list-item">
-                    <div class="list-item-info">
-                        <div class="list-item-title">${formatRupiah(s.amount)}</div>
-                        <div class="list-item-subtitle">
-                            ${new Date(s.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
-                            ${s.note ? ' • ' + s.note : ''}
+            let html = '';
+            recentSavings.forEach(item => {
+                const date = new Date(item.date).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
+                
+                html += `
+                    <div class="list-item" data-id="${item.id}" data-type="savings">
+                        <div class="item-info">
+                            <div class="item-title">${item.notes || 'Tabungan'}</div>
+                            <div class="item-subtitle">${date}</div>
                         </div>
-                    </div>
-                    <div class="list-item-actions">
-                        <button class="icon-btn" onclick="editSavings(${s.id})">✏️</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Render Seserahan List
-        function renderSeserahanList() {
-            const list = document.getElementById('seserahan-list');
-            
-            if (data.seserahan.length === 0) {
-                list.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">🎁</div>
-                        <div class="empty-text">Belum ada kebutuhan seserahan</div>
+                        <div class="item-amount">${formatCurrency(item.amount)}</div>
                     </div>
                 `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Add click events
+            document.querySelectorAll('#recent-savings-list .list-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const type = this.getAttribute('data-type');
+                    openEditModal(id, type);
+                });
+            });
+        }
+
+        // Update pending items list
+        function updatePendingItems() {
+            const container = document.getElementById('pending-items-list');
+            const emptyState = document.getElementById('empty-pending');
+            
+            const pendingItems = items.filter(item => item.status === 'pending');
+            
+            if (pendingItems.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
                 return;
             }
             
-            const sorted = [...data.seserahan].sort((a, b) => {
-                if (a.status !== b.status) return a.status === 'pending' ? -1 : 1;
-                return b.id - a.id;
+            emptyState.classList.add('d-none');
+            
+            let html = '';
+            pendingItems.forEach(item => {
+                html += `
+                    <div class="list-item" data-id="${item.id}" data-type="item">
+                        <div class="item-info">
+                            <div class="item-title">${item.name}</div>
+                            <div class="item-subtitle">Perkiraan: ${formatCurrency(item.price)}</div>
+                        </div>
+                        <span class="item-status status-pending">⏳ Belum dibeli</span>
+                    </div>
+                `;
             });
             
-            list.innerHTML = sorted.map(s => `
-                <div class="list-item">
-                    <div class="list-item-info">
-                        <div class="list-item-title">${s.name}</div>
-                        <div class="list-item-subtitle">${formatRupiah(s.price)}</div>
-                    </div>
-                    <div class="list-item-actions">
-                        <span class="status-badge ${s.status === 'completed' ? 'status-completed' : 'status-pending'}">
-                            ${s.status === 'completed' ? '✅ Sudah Dibeli' : '⏳ Belum Dibeli'}
-                        </span>
-                        <button class="icon-btn" onclick="editSeserahan(${s.id})">✏️</button>
-                    </div>
-                </div>
-            `).join('');
+            container.innerHTML = html;
+            
+            // Add click events
+            document.querySelectorAll('#pending-items-list .list-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const type = this.getAttribute('data-type');
+                    openEditModal(id, type);
+                });
+            });
         }
 
-        // Render Transaction List
-        function renderTransactionList() {
-            const list = document.getElementById('transaction-list');
+        // Update savings history list
+        function updateSavingsHistory() {
+            const container = document.getElementById('savings-history-list');
+            const emptyState = document.getElementById('empty-savings-history');
             
-            const transactions = [
-                ...data.savings.map(s => ({
-                    id: s.id,
-                    type: 'income',
-                    title: s.note || 'Tabungan',
-                    amount: s.amount,
-                    date: s.date,
-                    timestamp: new Date(s.date).getTime()
+            if (savings.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
+                return;
+            }
+            
+            emptyState.classList.add('d-none');
+            
+            // Sort by date (newest first)
+            const sortedSavings = [...savings].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            let html = '';
+            sortedSavings.forEach((item) => {
+                const date = new Date(item.date).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
+                
+                html += `
+                    <li class="list-item" data-id="${item.id}" data-type="savings">
+                        <div class="item-info">
+                            <div class="item-title">${item.notes || 'Tabungan'}</div>
+                            <div class="item-subtitle">${date}</div>
+                        </div>
+                        <div class="item-amount">${formatCurrency(item.amount)}</div>
+                    </li>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Add click event to each savings item
+            document.querySelectorAll('#savings-history-list .list-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const type = this.getAttribute('data-type');
+                    openEditModal(id, type);
+                });
+            });
+        }
+
+        // Update all items list
+        function updateAllItemsList() {
+            const container = document.getElementById('all-items-list');
+            const emptyState = document.getElementById('empty-items');
+            
+            if (items.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
+                return;
+            }
+            
+            emptyState.classList.add('d-none');
+            
+            let html = '';
+            items.forEach(item => {
+                const statusClass = item.status === 'done' ? 'status-done' : 'status-pending';
+                const statusText = item.status === 'done' ? '✅ Sudah dibeli' : '⏳ Belum dibeli';
+                
+                html += `
+                    <li class="list-item" data-id="${item.id}" data-type="item">
+                        <div class="item-info">
+                            <div class="item-title">${item.name}</div>
+                            <div class="item-subtitle">Perkiraan: ${formatCurrency(item.price)}</div>
+                        </div>
+                        <span class="item-status ${statusClass}">${statusText}</span>
+                    </li>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Add click event to each item
+            document.querySelectorAll('#all-items-list .list-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const type = this.getAttribute('data-type');
+                    openEditModal(id, type);
+                });
+            });
+        }
+
+        // Update history lists
+        function updateHistoryLists() {
+            updateAllHistoryList();
+            updateSavingsOnlyHistoryList();
+            updateExpensesHistoryList();
+        }
+
+        // Update all history list
+        function updateAllHistoryList() {
+            const container = document.getElementById('all-history-list');
+            const emptyState = document.getElementById('empty-all-history');
+            
+            // Combine savings and purchased items
+            const allHistory = [
+                ...savings.map(item => ({
+                    ...item,
+                    type: 'savings',
+                    displayDate: new Date(item.date)
                 })),
-                ...data.seserahan.filter(s => s.status === 'completed').map(s => ({
-                    id: s.id,
-                    type: 'expense',
-                    title: s.name,
-                    amount: s.price,
-                    date: s.purchasedAt || s.createdAt,
-                    timestamp: new Date(s.purchasedAt || s.createdAt).getTime()
-                }))
-            ].sort((a, b) => b.timestamp - a.timestamp);
+                ...items
+                    .filter(item => item.status === 'done')
+                    .map(item => ({
+                        ...item,
+                        type: 'expense',
+                        amount: item.price,
+                        displayDate: new Date(item.purchasedDate || item.createdDate)
+                    }))
+            ];
             
-            if (transactions.length === 0) {
-                list.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📜</div>
-                        <div class="empty-text">Belum ada riwayat transaksi</div>
-                    </div>
-                `;
+            if (allHistory.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
                 return;
             }
             
-            list.innerHTML = transactions.map(t => `
-                <div class="transaction-item">
-                    <div class="transaction-icon ${t.type}">
-                        ${t.type === 'income' ? '💰' : '🎁'}
-                    </div>
-                    <div class="transaction-details">
-                        <div class="transaction-title">${t.title}</div>
-                        <div class="transaction-date">
-                            ${new Date(t.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}
+            emptyState.classList.add('d-none');
+            
+            // Sort by date (newest first)
+            allHistory.sort((a, b) => b.displayDate - a.displayDate);
+            
+            let html = '';
+            allHistory.forEach(item => {
+                const date = item.displayDate.toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
+                
+                const isSavings = item.type === 'savings';
+                const icon = isSavings ? 'fa-piggy-bank' : 'fa-shopping-cart';
+                const title = isSavings ? (item.notes || 'Tabungan') : item.name;
+                const amountClass = isSavings ? 'item-amount' : 'item-amount stat-negative';
+                
+                html += `
+                    <div class="list-item">
+                        <div style="margin-right: 15px;">
+                            <i class="fas ${icon}" style="color: var(${isSavings ? '--success' : '--danger'});"></i>
                         </div>
+                        <div class="item-info">
+                            <div class="item-title">${title}</div>
+                            <div class="item-subtitle">${date} • ${isSavings ? 'Tabungan' : 'Pembelian'}</div>
+                        </div>
+                        <div class="${amountClass}">${isSavings ? '+' : '-'} ${formatCurrency(item.amount)}</div>
                     </div>
-                    <div class="transaction-amount ${t.type}">
-                        ${t.type === 'income' ? '+' : '-'}${formatRupiah(t.amount)}
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Update savings only history list
+        function updateSavingsOnlyHistoryList() {
+            const container = document.getElementById('savings-history-only-list');
+            const emptyState = document.getElementById('empty-savings-only-history');
+            
+            if (savings.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
+                return;
+            }
+            
+            emptyState.classList.add('d-none');
+            
+            // Sort by date (newest first)
+            const sortedSavings = [...savings].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            let html = '';
+            sortedSavings.forEach(item => {
+                const date = new Date(item.date).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
+                
+                html += `
+                    <div class="list-item">
+                        <div style="margin-right: 15px;">
+                            <i class="fas fa-piggy-bank" style="color: var(--success);"></i>
+                        </div>
+                        <div class="item-info">
+                            <div class="item-title">${item.notes || 'Tabungan'}</div>
+                            <div class="item-subtitle">${date}</div>
+                        </div>
+                        <div class="item-amount">+ ${formatCurrency(item.amount)}</div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            });
+            
+            container.innerHTML = html;
         }
 
-        // Edit Savings
-        function editSavings(id) {
-            const saving = data.savings.find(s => s.id === id);
-            if (!saving) return;
+        // Update expenses history list
+        function updateExpensesHistoryList() {
+            const container = document.getElementById('expenses-history-list');
+            const emptyState = document.getElementById('empty-expenses-history');
             
-            document.getElementById('edit-savings-id').value = id;
-            document.getElementById('edit-savings-amount').value = saving.amount;
-            document.getElementById('edit-savings-date').value = saving.date;
-            document.getElementById('edit-savings-note').value = saving.note || '';
+            const purchasedItems = items.filter(item => item.status === 'done');
             
-            showModal('edit-savings-modal');
-        }
-
-        // Save Edit Savings
-        function saveEditSavings() {
-            const id = parseInt(document.getElementById('edit-savings-id').value);
-            const amount = parseInt(document.getElementById('edit-savings-amount').value);
-            const date = document.getElementById('edit-savings-date').value;
-            const note = document.getElementById('edit-savings-note').value;
-            
-            const saving = data.savings.find(s => s.id === id);
-            if (saving) {
-                saving.amount = amount;
-                saving.date = date;
-                saving.note = note;
-                saveData();
-                closeModal('edit-savings-modal');
-                alert('Tabungan berhasil diperbarui!');
+            if (purchasedItems.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('d-none');
+                return;
             }
-        }
-
-        // Delete Savings
-        function deleteSavings() {
-            if (!confirm('Yakin ingin menghapus tabungan ini?')) return;
             
-            const id = parseInt(document.getElementById('edit-savings-id').value);
-            data.savings = data.savings.filter(s => s.id !== id);
-            saveData();
-            closeModal('edit-savings-modal');
-            alert('Tabungan berhasil dihapus!');
-        }
-
-        // Edit Seserahan
-        function editSeserahan(id) {
-            const item = data.seserahan.find(s => s.id === id);
-            if (!item) return;
+            emptyState.classList.add('d-none');
             
-            document.getElementById('edit-seserahan-id').value = id;
-            document.getElementById('edit-seserahan-name').value = item.name;
-            document.getElementById('edit-seserahan-price').value = item.price;
-            document.getElementById('edit-seserahan-status').value = item.status;
-            
-            showModal('edit-seserahan-modal');
-        }
-
-        // Save Edit Seserahan
-        function saveEditSeserahan() {
-            const id = parseInt(document.getElementById('edit-seserahan-id').value);
-            const name = document.getElementById('edit-seserahan-name').value;
-            const price = parseInt(document.getElementById('edit-seserahan-price').value);
-            const status = document.getElementById('edit-seserahan-status').value;
-            
-            const item = data.seserahan.find(s => s.id === id);
-            if (item) {
-                const oldStatus = item.status;
-                item.name = name;
-                item.price = price;
-                item.status = status;
+            let html = '';
+            purchasedItems.forEach(item => {
+                const date = new Date(item.purchasedDate || item.createdDate).toLocaleDateString('id-ID', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
                 
-                // Mark purchase date if status changed to completed
-                if (oldStatus === 'pending' && status === 'completed') {
-                    item.purchasedAt = new Date().toISOString();
+                html += `
+                    <div class="list-item">
+                        <div style="margin-right: 15px;">
+                            <i class="fas fa-shopping-cart" style="color: var(--danger);"></i>
+                        </div>
+                        <div class="item-info">
+                            <div class="item-title">${item.name}</div>
+                            <div class="item-subtitle">${date}</div>
+                        </div>
+                        <div class="item-amount stat-negative">- ${formatCurrency(item.price)}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        // Open edit modal
+        function openEditModal(id, type) {
+            const modal = document.getElementById('edit-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const editSavingsFields = document.getElementById('edit-savings-fields');
+            const editItemFields = document.getElementById('edit-item-fields');
+            
+            document.getElementById('edit-id').value = id;
+            document.getElementById('edit-type').value = type;
+            
+            if (type === 'savings') {
+                const item = savings.find(s => s.id === id);
+                if (item) {
+                    modalTitle.textContent = 'Edit Tabungan';
+                    editSavingsFields.classList.remove('d-none');
+                    editItemFields.classList.add('d-none');
+                    
+                    document.getElementById('edit-savings-amount').value = item.amount;
+                    document.getElementById('edit-savings-date').value = item.date;
+                    document.getElementById('edit-savings-notes').value = item.notes || '';
                 }
-                
-                saveData();
-                closeModal('edit-seserahan-modal');
-                alert('Seserahan berhasil diperbarui!');
+            } else if (type === 'item') {
+                const item = items.find(i => i.id === id);
+                if (item) {
+                    modalTitle.textContent = 'Edit Kebutuhan';
+                    editSavingsFields.classList.add('d-none');
+                    editItemFields.classList.remove('d-none');
+                    
+                    document.getElementById('edit-item-name').value = item.name;
+                    document.getElementById('edit-item-price').value = item.price;
+                    document.getElementById('edit-item-status').value = item.status;
+                }
             }
-        }
-
-        // Delete Seserahan
-        function deleteSeserahan() {
-            if (!confirm('Yakin ingin menghapus item ini?')) return;
             
-            const id = parseInt(document.getElementById('edit-seserahan-id').value);
-            data.seserahan = data.seserahan.filter(s => s.id !== id);
-            saveData();
-            closeModal('edit-seserahan-modal');
-            alert('Item berhasil dihapus!');
+            modal.classList.add('active');
         }
 
-        // Modal Functions
-        function showModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
+        // Close edit modal
+        function closeEditModal() {
+            document.getElementById('edit-modal').classList.remove('active');
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
+        // Generate unique ID
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
         }
 
-        function showAddMenu() {
-            showModal('add-menu-modal');
-        }
-
-        function showAddSavings() {
-            closeModal('add-menu-modal');
-            // Set today's date as default
-            document.getElementById('savings-date').valueAsDate = new Date();
-            showModal('add-savings-modal');
-        }
-
-        function showAddSeserahan() {
-            closeModal('add-menu-modal');
-            showModal('add-seserahan-modal');
-        }
-
-        // View Switching
-        function switchView(view) {
-            // Hide all views
-            document.getElementById('dashboard-view').classList.add('hidden');
-            document.getElementById('savings-view').classList.add('hidden');
-            document.getElementById('seserahan-view').classList.add('hidden');
-            document.getElementById('history-view').classList.add('hidden');
+        // Initialize the app
+        function initApp() {
+            // Set current date in forms
+            document.getElementById('savings-date').value = getCurrentDate();
             
-            // Show selected view
-            document.getElementById(view + '-view').classList.remove('hidden');
+            // Load data from localStorage
+            loadData();
             
-            // Update nav active state
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Add active to clicked item
-            document.querySelectorAll('.nav-item').forEach(item => {
-                if (item.getAttribute('data-view') === view) {
-                    item.classList.add('active');
-                }
-            });
-        }
-
-        // Close modal when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        // Event Listeners untuk Navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            // Bottom Navigation
+            // SIMPLE event handling untuk iOS Safari
+            // Bottom navigation - sangat sederhana
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const view = this.getAttribute('data-view');
-                    switchView(view);
-                });
-                
-                // Tambahan untuk iOS touch
-                item.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    const view = this.getAttribute('data-view');
-                    switchView(view);
+                    e.stopPropagation();
+                    
+                    // Update active nav item
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected tab
+                    const tabId = this.getAttribute('data-tab');
+                    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+                    
+                    // Reset sub-tabs to first tab
+                    if (tabId === 'savings-tab') {
+                        document.querySelectorAll('#savings-tab .tab').forEach(tab => tab.classList.remove('active'));
+                        document.querySelectorAll('#savings-tab .tab-content').forEach(content => content.classList.remove('active'));
+                        document.querySelector('#savings-tab .tab[data-tab="savings-list"]').classList.add('active');
+                        document.getElementById('savings-list').classList.add('active');
+                    } else if (tabId === 'seserahan-tab') {
+                        document.querySelectorAll('#seserahan-tab .tab').forEach(tab => tab.classList.remove('active'));
+                        document.querySelectorAll('#seserahan-tab .tab-content').forEach(content => content.classList.remove('active'));
+                        document.querySelector('#seserahan-tab .tab[data-tab="items-list"]').classList.add('active');
+                        document.getElementById('items-list').classList.add('active');
+                    } else if (tabId === 'history-tab') {
+                        document.querySelectorAll('#history-tab .tab').forEach(tab => tab.classList.remove('active'));
+                        document.querySelectorAll('#history-tab .tab-content').forEach(content => content.classList.remove('active'));
+                        document.querySelector('#history-tab .tab[data-tab="all-history"]').classList.add('active');
+                        document.getElementById('all-history').classList.add('active');
+                    }
+                    
+                    // Scroll ke atas
+                    window.scrollTo(0, 0);
                 });
             });
             
-            // FAB Button
-            const fabButton = document.getElementById('fab-button');
-            if (fabButton) {
-                fabButton.addEventListener('click', function(e) {
+            // Sub-tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function(e) {
                     e.preventDefault();
-                    showAddMenu();
-                });
-                
-                fabButton.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                    showAddMenu();
-                });
-            }
-            
-            // Set Target Button
-            const setTargetBtn = document.getElementById('set-target-btn');
-            if (setTargetBtn) {
-                setTargetBtn.addEventListener('click', setTarget);
-            }
-            
-            // Add Savings Button
-            const addSavingsBtn = document.getElementById('add-savings-btn');
-            if (addSavingsBtn) {
-                addSavingsBtn.addEventListener('click', addSavings);
-            }
-            
-            // Add Seserahan Button
-            const addSeserahanBtn = document.getElementById('add-seserahan-btn');
-            if (addSeserahanBtn) {
-                addSeserahanBtn.addEventListener('click', addSeserahan);
-            }
-            
-            // Save Edit Savings Button
-            const saveEditSavingsBtn = document.getElementById('save-edit-savings-btn');
-            if (saveEditSavingsBtn) {
-                saveEditSavingsBtn.addEventListener('click', saveEditSavings);
-            }
-            
-            // Delete Savings Button
-            const deleteSavingsBtn = document.getElementById('delete-savings-btn');
-            if (deleteSavingsBtn) {
-                deleteSavingsBtn.addEventListener('click', deleteSavings);
-            }
-            
-            // Save Edit Seserahan Button
-            const saveEditSeserahanBtn = document.getElementById('save-edit-seserahan-btn');
-            if (saveEditSeserahanBtn) {
-                saveEditSeserahanBtn.addEventListener('click', saveEditSeserahan);
-            }
-            
-            // Delete Seserahan Button
-            const deleteSeserahanBtn = document.getElementById('delete-seserahan-btn');
-            if (deleteSeserahanBtn) {
-                deleteSeserahanBtn.addEventListener('click', deleteSeserahan);
-            }
-            
-            // Close buttons untuk semua modal
-            document.querySelectorAll('.close-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    if (modal) {
-                        closeModal(modal.id);
+                    e.stopPropagation();
+                    
+                    const tabId = this.getAttribute('data-tab');
+                    const parentId = this.closest('.tab-content')?.id || this.closest('.card')?.id;
+                    
+                    // Update active tab
+                    this.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show selected content
+                    if (parentId === 'savings-tab' || parentId === 'seserahan-tab') {
+                        document.querySelectorAll(`#${parentId} .tab-content`).forEach(content => content.classList.remove('active'));
+                        document.getElementById(tabId).classList.add('active');
+                    } else if (this.closest('.card')) {
+                        const containerId = this.closest('.card').querySelector('.tab-content.active').id;
+                        document.querySelectorAll(`#${containerId} .tab-content`).forEach(content => content.classList.remove('active'));
+                        document.getElementById(tabId).classList.add('active');
                     }
                 });
             });
             
-            // Buttons di add menu modal
-            const addSavingsMenuBtn = document.getElementById('add-savings-menu-btn');
-            if (addSavingsMenuBtn) {
-                addSavingsMenuBtn.addEventListener('click', showAddSavings);
+            // FAB button
+            document.getElementById('fab').addEventListener('click', function() {
+                // Determine which tab is active
+                const activeNav = document.querySelector('.nav-item.active');
+                const activeTab = activeNav ? activeNav.getAttribute('data-tab') : 'dashboard-tab';
+                
+                if (activeTab === 'savings-tab') {
+                    // Switch to add savings form
+                    document.querySelectorAll('#savings-tab .tab').forEach(tab => tab.classList.remove('active'));
+                    document.querySelectorAll('#savings-tab .tab-content').forEach(content => content.classList.remove('active'));
+                    document.querySelector('#savings-tab .tab[data-tab="add-saving"]').classList.add('active');
+                    document.getElementById('add-saving').classList.add('active');
+                    
+                    // Focus on amount field
+                    setTimeout(() => {
+                        document.getElementById('savings-amount').focus();
+                    }, 300);
+                } else if (activeTab === 'seserahan-tab') {
+                    // Switch to add item form
+                    document.querySelectorAll('#seserahan-tab .tab').forEach(tab => tab.classList.remove('active'));
+                    document.querySelectorAll('#seserahan-tab .tab-content').forEach(content => content.classList.remove('active'));
+                    document.querySelector('#seserahan-tab .tab[data-tab="add-item"]').classList.add('active');
+                    document.getElementById('add-item').classList.add('active');
+                    
+                    // Focus on name field
+                    setTimeout(() => {
+                        document.getElementById('item-name').focus();
+                    }, 300);
+                } else {
+                    // For other tabs, show savings form by default
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                    
+                    document.querySelector('.nav-item[data-tab="savings-tab"]').classList.add('active');
+                    document.getElementById('savings-tab').classList.add('active');
+                    
+                    document.querySelectorAll('#savings-tab .tab').forEach(tab => tab.classList.remove('active'));
+                    document.querySelectorAll('#savings-tab .tab-content').forEach(content => content.classList.remove('active'));
+                    document.querySelector('#savings-tab .tab[data-tab="add-saving"]').classList.add('active');
+                    document.getElementById('add-saving').classList.add('active');
+                    
+                    setTimeout(() => {
+                        document.getElementById('savings-amount').focus();
+                    }, 300);
+                }
+            });
+            
+            // Savings form
+            document.getElementById('savings-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const amount = parseInt(document.getElementById('savings-amount').value);
+                const date = document.getElementById('savings-date').value;
+                const notes = document.getElementById('savings-notes').value;
+                
+                if (amount && date) {
+                    const newSaving = {
+                        id: generateId(),
+                        amount,
+                        date,
+                        notes,
+                        createdDate: new Date().toISOString()
+                    };
+                    
+                    savings.push(newSaving);
+                    saveData();
+                    updateUI();
+                    
+                    // Reset form and switch to list view
+                    this.reset();
+                    document.getElementById('savings-date').value = getCurrentDate();
+                    
+                    document.querySelectorAll('#savings-tab .tab').forEach(tab => tab.classList.remove('active'));
+                    document.querySelectorAll('#savings-tab .tab-content').forEach(content => content.classList.remove('active'));
+                    document.querySelector('#savings-tab .tab[data-tab="savings-list"]').classList.add('active');
+                    document.getElementById('savings-list').classList.add('active');
+                    
+                    // Show success message
+                    alert('Tabungan berhasil disimpan!');
+                }
+            });
+            
+            // Cancel savings button
+            document.getElementById('cancel-saving').addEventListener('click', function() {
+                document.getElementById('savings-form').reset();
+                document.getElementById('savings-date').value = getCurrentDate();
+                
+                document.querySelectorAll('#savings-tab .tab').forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('#savings-tab .tab-content').forEach(content => content.classList.remove('active'));
+                document.querySelector('#savings-tab .tab[data-tab="savings-list"]').classList.add('active');
+                document.getElementById('savings-list').classList.add('active');
+            });
+            
+            // Item form
+            document.getElementById('item-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('item-name').value;
+                const price = parseInt(document.getElementById('item-price').value);
+                const status = document.getElementById('item-status').value;
+                
+                if (name && price) {
+                    const newItem = {
+                        id: generateId(),
+                        name,
+                        price,
+                        status,
+                        createdDate: new Date().toISOString()
+                    };
+                    
+                    if (status === 'done') {
+                        newItem.purchasedDate = new Date().toISOString();
+                    }
+                    
+                    items.push(newItem);
+                    saveData();
+                    updateUI();
+                    
+                    // Reset form and switch to list view
+                    this.reset();
+                    
+                    document.querySelectorAll('#seserahan-tab .tab').forEach(tab => tab.classList.remove('active'));
+                    document.querySelectorAll('#seserahan-tab .tab-content').forEach(content => content.classList.remove('active'));
+                    document.querySelector('#seserahan-tab .tab[data-tab="items-list"]').classlist.add('active');
+                    document.getElementById('items-list').classList.add('active');
+                    
+                    // Show success message
+                    alert('Kebutuhan berhasil disimpan!');
+                }
+            });
+            
+            // Cancel item button
+            document.getElementById('cancel-item').addEventListener('click', function() {
+                document.getElementById('item-form').reset();
+                
+                document.querySelectorAll('#seserahan-tab .tab').forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('#seserahan-tab .tab-content').forEach(content => content.classList.remove('active'));
+                document.querySelector('#seserahan-tab .tab[data-tab="items-list"]').classList.add('active');
+                document.getElementById('items-list').classList.add('active');
+            });
+            
+            // Edit form
+            document.getElementById('edit-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const id = document.getElementById('edit-id').value;
+                const type = document.getElementById('edit-type').value;
+                
+                if (type === 'savings') {
+                    const amount = parseInt(document.getElementById('edit-savings-amount').value);
+                    const date = document.getElementById('edit-savings-date').value;
+                    const notes = document.getElementById('edit-savings-notes').value;
+                    
+                    const index = savings.findIndex(item => item.id === id);
+                    if (index !== -1) {
+                        savings[index] = {
+                            ...savings[index],
+                            amount,
+                            date,
+                            notes
+                        };
+                    }
+                } else if (type === 'item') {
+                    const name = document.getElementById('edit-item-name').value;
+                    const price = parseInt(document.getElementById('edit-item-price').value);
+                    const status = document.getElementById('edit-item-status').value;
+                    
+                    const index = items.findIndex(item => item.id === id);
+                    if (index !== -1) {
+                        const oldStatus = items[index].status;
+                        items[index] = {
+                            ...items[index],
+                            name,
+                            price,
+                            status
+                        };
+                        
+                        // If status changed to "done", add purchased date
+                        if (oldStatus !== 'done' && status === 'done') {
+                            items[index].purchasedDate = new Date().toISOString();
+                        }
+                    }
+                }
+                
+                saveData();
+                updateUI();
+                closeEditModal();
+                alert('Data berhasil diperbarui!');
+            });
+            
+            // Delete button
+            document.getElementById('delete-item').addEventListener('click', function() {
+                const id = document.getElementById('edit-id').value;
+                const type = document.getElementById('edit-type').value;
+                
+                if (confirm('Apakah Anda yakin ingin menghapus data ini?')) {
+                    if (type === 'savings') {
+                        savings = savings.filter(item => item.id !== id);
+                    } else if (type === 'item') {
+                        items = items.filter(item => item.id !== id);
+                    }
+                    
+                    saveData();
+                    updateUI();
+                    closeEditModal();
+                    alert('Data berhasil dihapus!');
+                }
+            });
+            
+            // Close modal button
+            document.getElementById('close-modal').addEventListener('click', closeEditModal);
+            
+            // Close modal when clicking outside
+            document.getElementById('edit-modal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeEditModal();
+                }
+            });
+            
+            // Export data
+            document.getElementById('export-data').addEventListener('click', function() {
+                const data = {
+                    savings,
+                    items,
+                    targetAmount,
+                    exportDate: new Date().toISOString()
+                };
+                
+                const dataStr = JSON.stringify(data, null, 2);
+                const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+                
+                const exportFileDefaultName = `backup-seserahan-${new Date().toISOString().slice(0,10)}.json`;
+                
+                const linkElement = document.createElement('a');
+                linkElement.setAttribute('href', dataUri);
+                linkElement.setAttribute('download', exportFileDefaultName);
+                linkElement.click();
+                
+                alert('Data berhasil diexport!');
+            });
+            
+            // Import data
+            document.getElementById('import-data').addEventListener('click', function() {
+                document.getElementById('import-file-input').click();
+            });
+            
+            document.getElementById('import-file-input').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        
+                        if (confirm('Import data akan mengganti semua data yang ada. Lanjutkan?')) {
+                            savings = data.savings || [];
+                            items = data.items || [];
+                            targetAmount = data.targetAmount || 10000000;
+                            
+                            saveData();
+                            updateUI();
+                            alert('Data berhasil diimport!');
+                        }
+                    } catch (error) {
+                        alert('File tidak valid! Pastikan file backup yang dipilih benar.');
+                    }
+                    
+                    // Reset file input
+                    document.getElementById('import-file-input').value = '';
+                };
+                
+                reader.readAsText(file);
+            });
+            
+            // Reset data
+            document.getElementById('reset-data').addEventListener('click', function() {
+                if (confirm('Apakah Anda yakin ingin mereset semua data? Tindakan ini tidak dapat dibatalkan.')) {
+                    savings = [];
+                    items = [];
+                    targetAmount = 10000000;
+                    
+                    saveData();
+                    updateUI();
+                    alert('Semua data telah direset!');
+                }
+            });
+            
+            // Update target amount on click
+            document.getElementById('target-amount').addEventListener('click', function() {
+                const newTarget = prompt('Masukkan target dana baru (Rp):', formatCurrency(targetAmount).replace('Rp ', ''));
+                if (newTarget) {
+                    const cleanedTarget = parseInt(newTarget.replace(/\./g, ''));
+                    if (!isNaN(cleanedTarget) && cleanedTarget > 0) {
+                        targetAmount = cleanedTarget;
+                        saveData();
+                        updateUI();
+                        alert('Target dana berhasil diperbarui!');
+                    } else {
+                        alert('Format angka tidak valid!');
+                    }
+                }
+            });
+            
+            // Fix untuk iOS Safari: tambahkan class 'cursor: pointer' untuk elemen yang dapat diklik
+            document.querySelectorAll('.nav-item, .tab, .btn, .list-item, .stat-card, .fab').forEach(el => {
+                el.style.cursor = 'pointer';
+            });
+            
+            // Tambahkan event listener sederhana untuk list items
+            document.addEventListener('click', function(e) {
+                // Untuk list items yang ada di recent savings
+                if (e.target.closest('.list-item[data-id]')) {
+                    const listItem = e.target.closest('.list-item[data-id]');
+                    const id = listItem.getAttribute('data-id');
+                    const type = listItem.getAttribute('data-type');
+                    openEditModal(id, type);
+                }
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+        
+        // Juga inisialisasi saat halaman fully loaded
+        window.addEventListener('load', function() {
+            // Scroll ke atas untuk menghindari masalah visual di iOS
+            window.scrollTo(0, 0);
+        });
+        
+        // Fix untuk iOS: cegah perilaku default pada elemen yang dapat diklik
+        document.addEventListener('touchstart', function(e) {
+            // Untuk elemen yang dapat diklik, biarkan perilaku default
+            if (e.target.closest('.nav-item') || 
+                e.target.closest('.tab') || 
+                e.target.closest('.btn') || 
+                e.target.closest('.fab') ||
+                e.target.closest('.list-item') ||
+                e.target.closest('.stat-card')) {
+                // Biarkan default untuk elemen ini
+                return;
             }
             
-            const addSeserahanMenuBtn = document.getElementById('add-seserahan-menu-btn');
-            if (addSeserahanMenuBtn) {
-                addSeserahanMenuBtn.addEventListener('click', showAddSeserahan);
+            // Untuk elemen lain, cegah zoom
+            if (e.touches.length > 1) {
+                e.preventDefault();
             }
-        });
-
-        // Initialize
-        loadData();
+        }, { passive: false });
     </script>
 </body>
 </html>
